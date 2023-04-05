@@ -2,8 +2,6 @@
 // Vertical navbar + Sidenav
 //
 
-@use "sass:math";
-
 .navbar-vertical {
   .navbar-brand > img,
   .navbar-brand-img {
@@ -30,7 +28,7 @@
         border: none;
 
         .dropdown-menu {
-          margin-left: $dropdown-item-padding-x * 0.5;
+          margin-left: $dropdown-item-padding-x / 2;
         }
       }
       .icon {
@@ -152,8 +150,8 @@
           }
           // Second level
           .navbar-nav .nav .nav-link {
-            padding-top: 0.417rem;
-            padding-bottom: 0.417rem;
+            padding-top: $navbar-vertical-nav-link-padding-y / 1.5;
+            padding-bottom: $navbar-vertical-nav-link-padding-y / 1.5;
             padding-left: 15px;
 
             > span.sidenav-normal {
@@ -309,7 +307,7 @@
     background-color: $white;
 
     .icon {
-      @include gradient-directional(nth($primary, 1) 0%, nth($primary, -1) 100%, $deg: 310deg);
+      @include gradient-directional(nth($success, 1) 0%, nth($success, -1) 100%, $deg: 310deg);
 
       svg {
         .color-background,
@@ -634,32 +632,6 @@
             width: auto;
             height: auto;
           }
-        }
-      }
-    }
-  }
-}
-
-// sidebar icons color
-
-.navbar-vertical {
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        .icon i {
-          color: $dark-gradient;
-        }
-      }
-    }
-  }
-}
-
-.navbar-vertical {
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        .icon i {
-          color: $white;
         }
       }
     }

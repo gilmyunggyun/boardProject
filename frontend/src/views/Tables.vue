@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import AuthorsTable from "./components/AuthorsTable.vue";
-import ProjectsTable from "./components/ProjectsTable.vue";
+import AuthorsTable from "./components/AuthorsTable";
+import ProjectsTable from "./components/ProjectsTable";
 
 export default {
-  name: "TablesPage",
+  name: "tables",
   components: {
     AuthorsTable,
     ProjectsTable,

@@ -1,18 +1,24 @@
 <template>
   <div class="card">
-    <div class="p-3 mx-4 text-center card-header">
+    <div class="p-3 mx-4 text-center card-header d-flex justify-content-center">
       <div
-        :class="iconBg"
-        class="icon icon-shape icon-lg bg-gradient-success shadow text-center border-radius-lg"
+        :class="
+          typeof icon === 'object' ? icon.background : 'bg-gradient-success'
+        "
+        class="icon icon-shape icon-lg shadow text-center border-radius-lg"
       >
-        <i class="opacity-10" :class="classIcon" aria-hidden="true"></i>
+        <i
+          class="opacity-10"
+          :class="typeof icon === 'string' ? icon : icon.component"
+          aria-hidden="true"
+        ></i>
       </div>
     </div>
     <div class="p-3 pt-0 text-center card-body">
       <h6 class="mb-0 text-center">{{ title }}</h6>
-      <span class="text-xs">{{ desc }}</span>
+      <span class="text-xs">{{ description }}</span>
       <hr class="my-3 horizontal dark" />
-      <h5 class="mb-0">{{ price }}</h5>
+      <h5 class="mb-0">{{ value }}</h5>
     </div>
   </div>
 </template>
@@ -21,25 +27,30 @@
 export default {
   name: "DefaultInfoCard",
   props: {
-    iconBg: {
-      type: String,
-      default: "bg-white",
-    },
-    classIcon: {
-      type: String,
+    icon: {
+      type: [String, Object],
       required: true,
+      component: {
+        type: String,
+      },
+      background: {
+        type: String,
+      },
+      default: () => ({
+        background: "bg-white",
+      }),
     },
     title: {
       type: String,
-      default: ""
+      required: true,
     },
-    desc: {
+    description: {
       type: String,
-      default: ""
+      default: "",
     },
-    price: {
-      type: String,
-      default: ""
+    value: {
+      type: [String, Number],
+      default: "",
     },
   },
 };

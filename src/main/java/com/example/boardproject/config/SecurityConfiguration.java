@@ -25,7 +25,8 @@ public class SecurityConfiguration {
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                         .anyRequest().authenticated()	// 어떠한 요청이라도 인증필요
                 )
-                .formLogin(login -> login	// form 방식 로그인 사용
+                .formLogin(login -> login
+                        .loginPage("/sign-in")// form 방식 로그인 사용
                         .defaultSuccessUrl("/", true)	// 성공 시 dashboard로
                         .permitAll()	// 대시보드 이동이 막히면 안되므로 얘는 허용
                 )

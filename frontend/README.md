@@ -176,7 +176,7 @@ vite-soft-ui-dashboard
 │           ├── ProjectsCard.vue
 │           ├── ProjectsTable.vue
 │           └── TransactionCard.vue
-├── vite.config.js
+├── vue.config.js
 └── yarn.lock
 ```
 

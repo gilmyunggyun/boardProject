@@ -12,8 +12,8 @@
         <div class="col-lg-6 col-5 my-auto text-end">
           <div class="dropdown float-lg-end pe-4">
             <a
-              id="dropdownTable"
               class="cursor-pointer"
+              id="dropdownTable"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
@@ -75,7 +75,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar :img="img1" size="sm" class="me-3" alt="xd" />
+                    <soft-avatar :img="img1" size="sm" class="me-3" alt="xd" />
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">Soft UI XD Version</h6>
@@ -129,11 +129,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">60%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="60"
+                      :percentage="60"
                     />
                   </div>
                 </div>
@@ -143,7 +143,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img6"
                       size="sm"
                       class="me-3"
@@ -184,11 +184,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">10%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="10"
+                      :percentage="10"
                     />
                   </div>
                 </div>
@@ -198,7 +198,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img9"
                       size="sm"
                       class="me-3"
@@ -239,11 +239,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">100%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="success"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>
@@ -253,7 +253,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img12"
                       class="me-3"
                       size="sm"
@@ -312,11 +312,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">100%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="success"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>
@@ -326,7 +326,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img17"
                       rounded-circle
                       class="me-3"
@@ -359,11 +359,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">25%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="25"
+                      :percentage="25"
                     />
                   </div>
                 </div>
@@ -373,7 +373,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img19"
                       class="me-3"
                       size="sm"
@@ -414,11 +414,11 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="text-xs font-weight-bold mx-2">40%</span>
                   <div>
-                    <vsud-progress
+                    <soft-progress
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="40"
+                      :percentage="40"
                     />
                   </div>
                 </div>
@@ -433,8 +433,8 @@
 
 <script>
 import setTooltip from "@/assets/js/tooltip.js";
-import VsudAvatar from "@/components/VsudAvatar.vue";
-import VsudProgress from "@/components/VsudProgress.vue";
+import SoftAvatar from "@/components/SoftAvatar.vue";
+import SoftProgress from "@/components/SoftProgress.vue";
 import img1 from "../../assets/img/small-logos/logo-xd.svg";
 import img2 from "../../assets/img/team-1.jpg";
 import img3 from "@/assets/img/team-2.jpg";
@@ -458,11 +458,7 @@ import img20 from "../../assets/img/team-1.jpg";
 import img21 from "../../assets/img/team-4.jpg";
 
 export default {
-  name: "ProjectsCard",
-  components: {
-    VsudAvatar,
-    VsudProgress,
-  },
+  name: "projects-card",
   data() {
     return {
       img1,
@@ -487,6 +483,10 @@ export default {
       img20,
       img21,
     };
+  },
+  components: {
+    SoftAvatar,
+    SoftProgress,
   },
   mounted() {
     setTooltip();
