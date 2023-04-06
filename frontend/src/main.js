@@ -1,32 +1,30 @@
 /**
-=========================================================
-* Vue Soft UI Dashboard - v3.0.0
-=========================================================
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
 
-* Product Page: https://creative-tim.com/product/vue-soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+// Components
+import App from './App.vue'
 
-Coded by www.creative-tim.com
+// Composables
+import { createApp } from 'vue'
 
-=========================================================
+// Plugins
+import { registerPlugins } from '@/plugins'
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-import { createApp } from "vue";
-import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
+
 import SoftUIDashboard from "./soft-ui-dashboard";
-import vuetify from './plugins/vuetify'
 
+const app = createApp(App)
+    .use(store)
+    .use(router)
+    .use(SoftUIDashboard)
 
-const appInstance = createApp(App);
-appInstance.use(store);
-appInstance.use(router);
-appInstance.use(vuetify);
-appInstance.use(SoftUIDashboard);
+registerPlugins(app)
 
-appInstance.mount("#app");
+app.mount('#app')

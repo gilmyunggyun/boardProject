@@ -1,67 +1,68 @@
 <template>
   <div
-    class="w-auto h-auto collapse navbar-collapse max-height-vh-100 h-100"
     id="sidenav-collapse-main"
+    class="w-auto h-auto collapse navbar-collapse max-height-vh-100 h-100"
   >
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">
+        <sidenav-collapse nav-text="Tables" :to="{ name: 'Tables' }">
           <template #icon>
-            <office />
+            <icon name="tables" />
           </template>
         </sidenav-collapse>
       </li>
 
       <li class="nav-item">
-        <sidenav-collapse navText="Sign In" :to="{ name: 'Sign In' }">
+        <sidenav-collapse nav-text="Sign In" :to="{ name: 'Sign In' }">
           <template #icon>
-            <document />
+            <icon name="sign-in" />
           </template>
         </sidenav-collapse>
       </li>
+
     </ul>
   </div>
   <div class="pt-3 mx-3 mt-3 sidenav-footer">
     <sidenav-card
       :class="cardBg"
-      textPrimary="Need Help?"
-      textSecondary="Please check our docs"
-      route="https://www.creative-tim.com/learning-lab/vue/overview/soft-ui-dashboard/"
-      label="Documentation"
-      icon="ni ni-diamond"
+      text-primary="Need Help?"
+      text-secondary="Please check our docs"
+      href="https://www.creative-tim.com/learning-lab/vue/overview/soft-ui-dashboard/"
+      link-text="Documentation"
+      icon-class="ni ni-diamond"
     />
     <a
       class="btn bg-gradient-success mt-4 w-100"
       href="https://www.creative-tim.com/product/vue-soft-ui-dashboard-pro?ref=vsud"
       type="button"
-      >Upgrade to pro</a
-    >
+    >Upgrade to pro</a>
   </div>
 </template>
 <script>
+import Icon from "@/components/Icon.vue";
 import SidenavCollapse from "./SidenavCollapse.vue";
 import SidenavCard from "./SidenavCard.vue";
-import Office from "../../components/Icon/Office.vue";
-import Document from "../../components/Icon/Document.vue";
 
 export default {
   name: "SidenavList",
+  components: {
+    Icon,
+    SidenavCollapse,
+    SidenavCard,
+  },
   props: {
-    cardBg: String,
+    cardBg: {
+      type: String,
+      default: ""
+    },
   },
   data() {
     return {
-      title: "Soft UI Dashboard PRO",
+      title: "Sample",
       controls: "dashboardsExamples",
       isActive: "active",
     };
-  },
-  components: {
-    SidenavCollapse,
-    SidenavCard,
-    Office,
-    Document,
   },
   methods: {
     getRoute() {

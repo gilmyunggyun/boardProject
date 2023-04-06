@@ -57,10 +57,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">60%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="info"
                       variant="gradient"
-                      :percentage="60"
+                      percentage="60"
                     />
                   </div>
                 </div>
@@ -96,10 +96,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">100%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="success"
                       variant="gradient"
-                      :percentage="100"
+                      percentage="100"
                     />
                   </div>
                 </div>
@@ -139,10 +139,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">30%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="danger"
                       variant="gradient"
-                      :percentage="30"
+                      percentage="30"
                     />
                   </div>
                 </div>
@@ -182,10 +182,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">0%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="success"
                       variant="gradient"
-                      :percentage="0"
+                      percentage="0"
                     />
                   </div>
                 </div>
@@ -225,10 +225,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">80%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="info"
                       variant="gradient"
-                      :percentage="80"
+                      percentage="80"
                     />
                   </div>
                 </div>
@@ -268,10 +268,10 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="me-2 text-xs font-weight-bold">100%</span>
                   <div>
-                    <soft-progress
+                    <vsud-progress
                       color="success"
                       variant="gradient"
-                      :percentage="100"
+                      percentage="100"
                     />
                   </div>
                 </div>
@@ -294,12 +294,12 @@
 </template>
 
 <script>
-import SoftProgress from "@/components/SoftProgress";
+import VsudProgress from "@/components/VsudProgress.vue";
 
 export default {
-  name: "projects-table",
+  name: "ProjectsTable",
   components: {
-    SoftProgress,
+    VsudProgress,
   },
 };
 </script>

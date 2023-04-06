@@ -1,12 +1,14 @@
 <template>
-  <div class="p-3 pb-0 card-header">
-    <h6>{{ title }}</h6>
-    <!-- eslint-disable vue/no-v-html -->
-    <p v-if="description" class="text-sm" v-html="description" />
+  <div class="pb-0 card-header">
+    <h6>Sales overview</h6>
+    <p class="text-sm">
+      <i class="fa fa-arrow-up text-success"></i>
+      <span class="font-weight-bold">4% more</span> in 2021
+    </p>
   </div>
   <div class="p-3 card-body">
     <div class="chart">
-      <canvas :id="id" class="chart-canvas" :height="height"></canvas>
+      <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
     </div>
   </div>
 </template>
@@ -16,56 +18,29 @@ import Chart from "chart.js/auto";
 
 export default {
   name: "GradientLineChart",
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    height: {
-      type: String,
-      default: "300",
-    },
-    title: {
-      type: String,
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    chart: {
-      type: Object,
-      required: true,
-      labels: Array,
-      datasets: {
-        type: Array,
-        label: String,
-        data: Array,
-      },
-    },
-  },
 
   mounted() {
-    var ctx = document.getElementById(this.id).getContext("2d");
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
     gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
-    gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+    gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
 
-    let chartStatus = Chart.getChart(this.id);
-    if (chartStatus != undefined) {
-      chartStatus.destroy();
-    }
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    new Chart(ctx, {
+    gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+    gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+    gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
+
+    new Chart(ctx2, {
       type: "line",
       data: {
-        labels: this.chart.labels,
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [
           {
-            label: this.chart.datasets[0].label,
+            label: "Mobile apps",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
@@ -74,20 +49,20 @@ export default {
             borderWidth: 3,
             backgroundColor: gradientStroke1,
             fill: true,
-            data: this.chart.datasets[0].data,
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
             maxBarThickness: 6,
           },
           {
-            label: this.chart.datasets[1].label,
+            label: "Websites",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
             borderColor: "#3A416F",
             // eslint-disable-next-line no-dupe-keys
             borderWidth: 3,
-            backgroundColor: gradientStroke1,
+            backgroundColor: gradientStroke2,
             fill: true,
-            data: this.chart.datasets[1].data,
+            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
             maxBarThickness: 6,
           },
         ],

@@ -1,30 +1,30 @@
 <template>
   <nav
-    class="shadow-none navbar navbar-main navbar-expand-lg border-radius-xl"
     v-bind="$attrs"
     id="navbarBlur"
+    class="shadow-none navbar navbar-main navbar-expand-lg border-radius-xl"
     data-scroll="true"
   >
     <div class="px-3 py-1 container-fluid">
-      <breadcrumbs :currentPage="currentRouteName" :textWhite="textWhite" />
+      <breadcrumbs :current-page="currentRouteName" :text-white="textWhite" />
       <div
-        class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4"
-        :class="this.$store.state.isRTL ? 'px-0' : 'me-sm-4'"
         id="navbar"
+        class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4"
+        :class="$store.state.isRTL ? 'px-0' : 'me-sm-4'"
       >
         <div
           class="pe-md-3 d-flex align-items-center"
-          :class="this.$store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'"
+          :class="$store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'"
         >
           <div class="input-group">
-            <span class="input-group-text text-body"
-              ><i class="fas fa-search" aria-hidden="true"></i
-            ></span>
+            <span class="input-group-text text-body">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
             <input
               type="text"
               class="form-control"
               :placeholder="
-                this.$store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
+                $store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
               "
             />
           </div>
@@ -36,22 +36,17 @@
               class="px-0 nav-link font-weight-bold"
               :class="textWhite ? textWhite : 'text-body'"
             >
-              <i
-                class="fa fa-user"
-                :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-1'"
-              ></i>
-              <span v-if="this.$store.state.isRTL" class="d-sm-inline d-none"
-                >يسجل دخول</span
-              >
-              <span v-else class="d-sm-inline d-none">Sign In </span>
+              <i class="fa fa-user" :class="$store.state.isRTL ? 'ms-sm-2' : 'me-sm-1'"></i>
+              <span v-if="$store.state.isRTL" class="d-sm-inline d-none">يسجل دخول</span>
+              <span v-else class="d-sm-inline d-none">Sign In</span>
             </router-link>
           </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a
-              href="#"
-              @click="toggleSidebar"
-              class="p-0 nav-link text-body"
               id="iconNavbarSidenav"
+              href="#"
+              class="p-0 nav-link text-body"
+              @click="toggleSidebar"
             >
               <div class="sidenav-toggler-inner">
                 <i class="sidenav-toggler-line"></i>
@@ -63,24 +58,24 @@
           <li class="px-3 nav-item d-flex align-items-center">
             <a
               class="p-0 nav-link"
-              @click="toggleConfigurator"
               :class="textWhite ? textWhite : 'text-body'"
+              @click="toggleConfigurator"
             >
               <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
             </a>
           </li>
           <li
             class="nav-item dropdown d-flex align-items-center"
-            :class="this.$store.state.isRTL ? 'ps-2' : 'pe-2'"
+            :class="$store.state.isRTL ? 'ps-2' : 'pe-2'"
           >
             <a
+              id="dropdownMenuButton"
               href="#"
               class="p-0 nav-link"
               :class="[
                 textWhite ? textWhite : 'text-body',
                 showMenu ? 'show' : '',
               ]"
-              id="dropdownMenuButton"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               @click="showMenu = !showMenu"
@@ -141,9 +136,7 @@
               <li>
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                   <div class="py-1 d-flex">
-                    <div
-                      class="my-auto avatar avatar-sm bg-gradient-secondary me-3"
-                    >
+                    <div class="my-auto avatar avatar-sm bg-gradient-secondary me-3">
                       <svg
                         width="12px"
                         height="12px"
@@ -153,12 +146,7 @@
                         xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <title>credit-card</title>
-                        <g
-                          stroke="none"
-                          stroke-width="1"
-                          fill="none"
-                          fill-rule="evenodd"
-                        >
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g
                             transform="translate(-2169.000000, -745.000000)"
                             fill="#FFFFFF"
@@ -170,11 +158,11 @@
                                   class="color-background"
                                   d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
                                   opacity="0.593633743"
-                                ></path>
+                                />
                                 <path
                                   class="color-background"
                                   d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                ></path>
+                                />
                               </g>
                             </g>
                           </g>
@@ -182,9 +170,7 @@
                       </svg>
                     </div>
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-1 text-sm font-weight-normal">
-                        Payment successfully completed
-                      </h6>
+                      <h6 class="mb-1 text-sm font-weight-normal">Payment successfully completed</h6>
                       <p class="mb-0 text-xs text-secondary">
                         <i class="fa fa-clock me-1"></i>
                         2 days
@@ -205,32 +191,33 @@ import Breadcrumbs from "../Breadcrumbs.vue";
 import { mapMutations, mapActions } from "vuex";
 
 export default {
-  name: "navbar",
+  name: "NavbarComponent",
+
+  components: {
+    Breadcrumbs,
+  },
+  props: {
+    minNav: {
+      type: Function,
+      default: () => { }
+    },
+    textWhite: {
+      type: String,
+      default: ""
+    },
+  },
   data() {
     return {
       showMenu: false,
     };
   },
-  props: ["minNav", "textWhite"],
-  created() {
-    this.minNav;
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
-    ...mapActions(["toggleSidebarColor"]),
-
-    toggleSidebar() {
-      this.toggleSidebarColor("bg-white");
-      this.navbarMinimize();
-    },
-  },
-  components: {
-    Breadcrumbs,
-  },
   computed: {
     currentRouteName() {
       return this.$route.name;
     },
+  },
+  created() {
+    this.minNav;
   },
   updated() {
     const navbar = document.getElementById("navbarBlur");
@@ -240,14 +227,19 @@ export default {
         navbar.classList.add("position-sticky");
         navbar.classList.add("shadow-blur");
       } else {
-
-          if(navbar) {
-              navbar.classList.remove("blur");
-              navbar.classList.remove("position-sticky");
-              navbar.classList.remove("shadow-blur");
-          }
+        navbar.classList.remove("blur");
+        navbar.classList.remove("position-sticky");
+        navbar.classList.remove("shadow-blur");
       }
     });
+  }, methods: {
+    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
+    ...mapActions(["toggleSidebarColor"]),
+
+    toggleSidebar() {
+      this.toggleSidebarColor("bg-white");
+      this.navbarMinimize();
+    },
   },
 };
 </script>

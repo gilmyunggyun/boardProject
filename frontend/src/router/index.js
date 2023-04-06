@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Tables from "@/views/Tables.vue";
 import SignIn from "@/views/SignIn.vue";
 
@@ -20,10 +20,11 @@ const routes = [
     name: "Sign In",
     component: SignIn,
   }
+
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   linkActiveClass: "active",
 });

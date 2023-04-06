@@ -8,7 +8,7 @@ spring:
       roles: ADMIN
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/local
+    url: jdbc:mariadb://localhost:3308/local
     username: root
     password: root
 

@@ -10,9 +10,7 @@
         to="/dashboard"
         v-bind="$attrs"
         :class="isBlur ? 'text-dark' : 'text-white'"
-      >
-        Soft UI Dashboard
-      </router-link>
+      >Vite Soft UI Dashboard</router-link>
       <button
         class="navbar-toggler shadow-none ms-2"
         type="button"
@@ -28,7 +26,7 @@
           <span class="navbar-toggler-bar bar3"></span>
         </span>
       </button>
-      <div class="collapse navbar-collapse" id="navigation">
+      <div id="navigation" class="collapse navbar-collapse">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <router-link
@@ -81,8 +79,7 @@
               href="https://www.creative-tim.com/product/vue-soft-ui-dashboard"
               class="btn btn-sm btn-round mb-0 me-1"
               :class="isBlur ? 'bg-gradient-dark' : 'bg-gradient-success'"
-              >Free download</a
-            >
+            >Free download</a>
           </li>
         </ul>
       </div>
@@ -96,20 +93,26 @@ import downArrWhite from "@/assets/img/down-arrow-white.svg";
 import downArrBlack from "@/assets/img/down-arrow-dark.svg";
 
 export default {
-  name: "navbar",
+  name: "NavbarComponent",
+  props: {
+    btnBackground: {
+      type: String,
+      default: ""
+    },
+    isBlur: {
+      type: String,
+      default: ""
+    },
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       downArrWhite,
       downArrBlack,
     };
-  },
-  props: {
-    btnBackground: String,
-    isBlur: String,
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     darkModes() {

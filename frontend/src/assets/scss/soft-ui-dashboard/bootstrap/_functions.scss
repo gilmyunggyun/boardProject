@@ -37,11 +37,17 @@
   @return red($value), green($value), blue($value);
 }
 
+// stylelint-disable scss/dollar-variable-pattern
 @function rgba-css-var($identifier, $target) {
-  @return rgba(var(--#{$variable-prefix}#{$identifier}-rgb), var(--#{$variable-prefix}#{$target}-opacity));
+  @if $identifier == "body" and $target == "bg" {
+    @return rgba(var(--#{$variable-prefix}#{$identifier}-bg-rgb), var(--#{$variable-prefix}#{$target}-opacity));
+  } @if $identifier == "body" and $target == "text" {
+    @return rgba(var(--#{$variable-prefix}#{$identifier}-color-rgb), var(--#{$variable-prefix}#{$target}-opacity));
+  } @else {
+    @return rgba(var(--#{$variable-prefix}#{$identifier}-rgb), var(--#{$variable-prefix}#{$target}-opacity));
+  }
 }
 
-// stylelint-disable scss/dollar-variable-pattern
 @function map-loop($map, $func, $args...) {
   $_map: ();
 
@@ -192,7 +198,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
 @function opaque($background, $foreground) {
-  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
 }
 
 // scss-docs-start color-functions
